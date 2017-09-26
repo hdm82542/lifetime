@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>「人生の残り実感時間」診断</title>
+    <link rel="stylesheet" href="liferemain.css">
+</head>
+<body>
+    <h1>あなたの「人生の残り時間」は？</h1>
+    <p>「年を取ったら１年が短くなった」と感じたことはありませんか！？<br>
+    時間の心理的長さは年齢の逆数に比例すると言われています。<br>
+    あなたの「人生の残り実感時間」を計測しましょう！ </p>    
+    <p>あなたの生まれた年は？（西暦）</p>
+    <input type="text" id="year" size="40" maxlength="4">
+    <p>あなたの生まれた月は？</p>
+    <input type="text" id="month" size="40" maxlength="4">
+    <p>あなたの生まれた日は？</p>
+    <input type="text" id="day" size="40" maxlength="4">
+    <p><button id="assessment">診断する</button></p>
+    <div id="result-area"></div>
+    <div id="tweet-area">
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <script src="liferemain.js"></script>
+</body>
+</html>
