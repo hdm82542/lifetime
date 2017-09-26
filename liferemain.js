@@ -65,7 +65,7 @@
      */
     function assessment(yearNum, monthNum, dayNum) {
          // 誕生日の変数
-         var myBirthTime = new Date(yearNum, monthNum, dayNum, 0, 0);
+         var myBirthTime = new Date(yearNum, monthNum-1, dayNum);
          
          // 現在の時間
          var now = new Date();
@@ -73,14 +73,14 @@
          //生まれてから「何日」「何年」「最後の誕生日からの何日」
          var daysFromBirth = parseInt((now.getTime() - myBirthTime.getTime()) / (1000 * 60 * 60 * 24));
          var yearsFromBirth = Math.floor(daysFromBirth / 365);
-         var daysAfterBirthday = daysFromBirth % 365;
+         var daysAfterBirthday = daysFromBirth % 365 - Math.floor(yearsFromBirth / 4); //うるう年を考慮
          
          //var result = '生まれてから' + yearsFromBirth + '年と' + daysAfterBirthday +'日経過。';
 
          // 日本人の平均寿命（81歳）の人生実感時間
          var averageConsciousTime = 0;
 
-         for (var i=3; i <= 84; i++){
+         for (var i=3; i <= 81; i++){
             averageConsciousTime += 1 / i;
         }   
 
@@ -99,6 +99,8 @@
          var passedConsciousTime = Math.round(yourConsciousTime / averageConsciousTime * 1000)/10;
 
          var result = '生まれてから' + yearsFromBirth + '年と' + daysAfterBirthday +'日経過。' + "\n" + '人生の実感時間のうち' +passedConsciousTime + '％が過ぎました。';
+
+
 
 
 
