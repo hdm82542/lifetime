@@ -80,7 +80,7 @@
          // 日本人の平均寿命（81歳）の人生実感時間
          var averageConsciousTime = 0;
 
-         for (var i=3; i <= 81; i++){
+         for (var i=3; i <= 84; i++){
             averageConsciousTime += 1 / i;
         }   
 
