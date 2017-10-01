@@ -12,12 +12,18 @@
     あなたの「人生の残り実感時間」を計測しましょう！ <br>
     <a href="http://bighope-life.hateblo.jp/entry/2017/09/25/%E5%AE%9F%E3%81%AF20%E6%AD%B3%E3%81%A7%E4%BA%BA%E7%94%9F%E3%81%AF%E5%8D%8A%E5%88%86%E7%B5%82%E3%82%8F%E3%81%A3%E3%81%A6%E3%81%84%E3%81%9F" target="_blank">参考にしたブログ記事</a></p>    
     <p>あなたの生まれた年は？（西暦）</p>
-    
     <input type="text" id="year" size="40" maxlength="4">
     <p>あなたの生まれた月は？</p>
-    <input type="text" id="month" size="40" maxlength="4">
+    <input type="text" id="month" size="40" maxlength="2">
     <p>あなたの生まれた日は？</p>
-    <input type="text" id="day" size="40" maxlength="4">
+    <input type="text" id="day" size="40" maxlength="2">
+    <p>あなたの性別は？</p>
+    <form name="fm">
+        <select name="sex">
+            <option value="male">男性</option>
+            <option value="female">女性</option>
+        </select>
+    </form>
     <p><button id="assessment">診断する</button></p>
     <div id="result-area"></div>
     <div id="tweet-area">

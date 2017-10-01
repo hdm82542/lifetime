@@ -3,6 +3,7 @@
     const yearInput = document.getElementById('year');
     const monthInput = document.getElementById('month');
     const dayInput = document.getElementById('day');
+    const sexInput = document.fm.sex;
     const assessmentButton = document.getElementById('assessment');
     const resultDivided = document.getElementById('result-area');
     const tweetDivided = document.getElementById('tweet-area');
@@ -23,6 +24,8 @@
         const yearNum = parseInt(yearInput.value);
         const monthNum = parseInt(monthInput.value);
         const dayNum = parseInt(dayInput.value);
+        const sex = sexInput.value;
+
         //名前が空のときは処理を終了する
         if (yearNum.length === 0 || monthNum.length === 0 || dayNum.length === 0) {
             return;
@@ -36,7 +39,7 @@
         resultDivided.appendChild(header);
 
         const paragraph = document.createElement('p');
-        const result = assessment(yearNum,monthNum,dayNum);
+        const result = assessment(yearNum,monthNum,dayNum,sex);
         paragraph.innerText = result;
         resultDivided.appendChild(paragraph);
 
@@ -58,12 +61,13 @@
 
     /**
      * 名前の文字列を渡すと診断結果を返す関数
-     * @param {int} yearNum ユーザーの名前
-     * @param {int} monthNum ユーザーの名前
-     * @param {int} dayNum ユーザーの名前
+     * @param {int} yearNum 生まれた年
+     * @param {int} monthNum 生まれた月
+     * @param {int} dayNum 生まれた日
+     * @param {string} sex 性別
      * @return {string} 診断結果
      */
-    function assessment(yearNum, monthNum, dayNum) {
+    function assessment(yearNum, monthNum, dayNum, sex) {
          // 誕生日の変数
          var myBirthTime = new Date(yearNum, monthNum-1, dayNum);
          
@@ -75,12 +79,18 @@
          var yearsFromBirth = Math.floor(daysFromBirth / 365);
          var daysAfterBirthday = daysFromBirth % 365 - Math.floor(yearsFromBirth / 4); //うるう年を考慮
          
-         //var result = '生まれてから' + yearsFromBirth + '年と' + daysAfterBirthday +'日経過。';
+         //日本人の平均寿命、男性（81歳）女性（87歳）
+         var averageLifeTime = 0;
+         if (sex === "male") {
+             averageLifeTime = 81;
+         } else {
+            averageLifeTime = 87;
+         };
 
-         // 日本人の平均寿命（81歳）の人生実感時間
+
+         // 人生実感時間を計算
          var averageConsciousTime = 0;
-
-         for (var i=3; i <= 81; i++){
+         for (var i=3; i <= averageLifeTime; i++){
             averageConsciousTime += 1 / i;
         }   
 
@@ -91,7 +101,7 @@
                  yourConsciousTime += 1 / i;
              }
              yourConsciousTime += (1/yearsFromBirth) * daysAfterBirthday / 365;
-         }
+         };
 
          //var result = '平均の人生総実感時間は' + averageConsciousTime + "\n" + 'あなたの実感時間は' + yourConsciousTime +'です';
 
@@ -99,11 +109,6 @@
          var passedConsciousTime = Math.round(yourConsciousTime / averageConsciousTime * 1000)/10;
 
          var result = '生まれてから' + yearsFromBirth + '年と' + daysAfterBirthday +'日経過。' + "\n" + '人生の実感時間のうち' +passedConsciousTime + '％が過ぎました。';
-
-
-
-
-
 
 
          // 結果を返す

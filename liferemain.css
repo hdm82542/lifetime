@@ -17,3 +17,7 @@ button {
 input {
     height: 20px;
 }
+
+select {
+    height: 25px;
+}
